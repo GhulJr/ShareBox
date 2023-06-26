@@ -9,13 +9,13 @@ import androidx.compose.ui.unit.sp
 import com.ghuljr.sharebox.R
 
 private val fontFamily = FontFamily(
-    Font(R.font.mplus_rounded_black),
-    Font(R.font.mplus_rounded_bold),
-    Font(R.font.mplus_rounded_extra_bold),
-    Font(R.font.mplus_rounded_light),
-    Font(R.font.mplus_rounded_medium),
-    Font(R.font.mplus_rounded_regular),
-    Font(R.font.mplus_rounded_thin)
+    Font(R.font.mplus_rounded_black, FontWeight.Black),
+    Font(R.font.mplus_rounded_bold, FontWeight.Bold),
+    Font(R.font.mplus_rounded_extra_bold, FontWeight.ExtraBold),
+    Font(R.font.mplus_rounded_light, FontWeight.Light),
+    Font(R.font.mplus_rounded_medium, FontWeight.Medium),
+    Font(R.font.mplus_rounded_regular, FontWeight.Normal),
+    Font(R.font.mplus_rounded_thin, FontWeight.Thin)
 )
 
 // Set of Material typography styles to start with
@@ -24,7 +24,7 @@ val Typography = Typography(
         fontFamily = fontFamily,
         fontWeight = FontWeight.Normal,
         lineHeight = 64.sp,
-        fontSize = 57.sp
+        fontSize = 57.sp,
     ),
     displayMedium = TextStyle(
         fontFamily = fontFamily,
