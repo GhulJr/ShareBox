@@ -38,18 +38,7 @@ captures/
 
 # IntelliJ
 *.iml
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/assetWizardSettings.xml
-.idea/dictionaries
-.idea/libraries
-.idea/jarRepositories.xml
-.idea/caches
-.idea/modules.xml
-.idea/navEditor.xml
-.idea/deploymentTargetDropDown.xml
-.idea/kotlinc.xml
-.idea/misc.xml
+.idea/
 
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
