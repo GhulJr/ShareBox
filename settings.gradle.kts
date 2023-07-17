@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "ShareBox"
-include ':app'
+include(":app")
