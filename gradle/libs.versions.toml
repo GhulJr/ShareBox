@@ -1,20 +1,20 @@
 [versions]
 
 # Plugins
-android_app_version = "8.0.2"
-android_lib_version = "8.0.2"
+android_app_version = "8.1.1"
+android_lib_version = "8.1.1"
 kotlin_version = "1.8.21"
 
 # Libraries
-ktx_version = "1.10.1"
+ktx_version = "1.12.0"
 kotlin_bom_version = "1.8.0"
-lifecycle_ktx_version = "2.6.1"
-activity_compose_version = "1.5.1"
-compose_bom_version = "2023.05.01"
+lifecycle_ktx_version = "2.6.2"
+activity_compose_version = "1.7.2"
+compose_bom_version = "2023.09.00"
 junit_version = "4.13.2"
 junit_ext_version = "1.1.5"
 espresso_version = "3.5.1"
-compose_test_bom_version = "2022.10.00"
+compose_test_bom_version = "2023.09.00"
 
 
 [libraries]
