@@ -10,10 +10,19 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.ghuljr.sharebox.R
 import com.ghuljr.sharebox.ui.components.ShareBoxAppBar
+import com.ghuljr.sharebox.ui.components.ShareBoxIconButton
 import com.ghuljr.sharebox.ui.theme.ShareBoxTheme
 import com.ghuljr.sharebox.ui.utils.loremIpsum
 
@@ -21,16 +30,28 @@ import com.ghuljr.sharebox.ui.utils.loremIpsum
 @Composable
 fun NoteScreen() {
     val scrollBehaviour = TopAppBarDefaults.pinnedScrollBehavior()
+    var icon by remember { mutableIntStateOf(R.drawable.ic_unlocked) }
+    var title by remember { mutableStateOf("ShareBox") }
+
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehaviour.nestedScrollConnection),
         topBar = {
             ShareBoxAppBar(
-                title = "ShareBox",
-                scrollBehaviour = scrollBehaviour
+                title = title,
+                scrollBehaviour = scrollBehaviour,
+                actions = {
+                    ShareBoxIconButton(
+                        imageVector = ImageVector.vectorResource(id = icon),
+                        contentDescription = "Change lock mode button" // TODO: get it from strings - how to keep them in compose?
+                    ) {
+                        icon = R.drawable.ic_locked
+                        title += "!"
+                    }
+                }
             )
         }
     ) { contentPadding ->
-        Greeting(
+        FillerText(
             modifier = Modifier.padding(contentPadding),
             name = loremIpsum()
         )
@@ -51,7 +72,7 @@ fun NoteScreenPreview() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun FillerText(name: String, modifier: Modifier = Modifier) {
     val scrollState = rememberScrollState(0)
     Text(
         modifier = modifier.verticalScroll(scrollState),

@@ -1,5 +1,6 @@
 package com.ghuljr.sharebox.ui.components
 
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -15,15 +16,17 @@ import com.ghuljr.sharebox.ui.theme.ShareBoxTheme
 fun ShareBoxAppBar(
     modifier: Modifier = Modifier,
     scrollBehaviour: TopAppBarScrollBehavior? = null,
-    title: String = ""
+    title: String = "",
+    actions: @Composable RowScope.() -> Unit = {}
 ) {
     CenterAlignedTopAppBar(
         modifier = modifier,
         scrollBehavior = scrollBehaviour,
+        actions = actions,
         title = {
             Text(
                 text = title,
-                style = MaterialTheme.typography.titleSmall
+                style = MaterialTheme.typography.titleSmall,
             )
         }
     )
