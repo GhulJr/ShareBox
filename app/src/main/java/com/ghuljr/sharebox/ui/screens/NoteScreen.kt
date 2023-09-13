@@ -30,22 +30,20 @@ import com.ghuljr.sharebox.ui.utils.loremIpsum
 @Composable
 fun NoteScreen() {
     val scrollBehaviour = TopAppBarDefaults.pinnedScrollBehavior()
-    var icon by remember { mutableIntStateOf(R.drawable.ic_unlocked) }
-    var title by remember { mutableStateOf("ShareBox") }
+    var iconLocked by remember { mutableStateOf(false) }
 
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehaviour.nestedScrollConnection),
         topBar = {
             ShareBoxAppBar(
-                title = title,
+                title = "ShareBox",
                 scrollBehaviour = scrollBehaviour,
                 actions = {
                     ShareBoxIconButton(
-                        imageVector = ImageVector.vectorResource(id = icon),
+                        imageVector = ImageVector.vectorResource(id = if(iconLocked) R.drawable.ic_locked else R.drawable.ic_unlocked),
                         contentDescription = "Change lock mode button" // TODO: get it from strings - how to keep them in compose?
                     ) {
-                        icon = R.drawable.ic_locked
-                        title += "!"
+                        iconLocked = !iconLocked
                     }
                 }
             )
